@@ -10,5 +10,5 @@ Sistema simples para as funcionalidades de criação, leitura, atualização e e
 
 - Acesso ao banco de dados com o *MySQL*.
 - Otimização da conexão com o banco de dados através do módulo *PDO*.
-- Uso do *Twig* e do *Materialize* por meio do *Composer*.
+- Uso do *Twig* por meio do *Composer* e do *Materialize*.
 - Conceitos básicos de herança do *Twig*.
