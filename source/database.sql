@@ -6,5 +6,8 @@ CREATE TABLE IF NOT EXISTS cliente(
     nome VARCHAR(255) NOT NULL,
     sobrenome VARCHAR(255) NOT NULL,
     cpf VARCHAR(11) NOT NULL,
-    nascimento DATE
+    email VARCHAR(255) NOT NULL
 );
+
+DESC cliente;
+SELECT * FROM cliente;
