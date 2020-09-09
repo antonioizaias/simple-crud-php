@@ -4,7 +4,7 @@
 
     <!-- Import Google Icon Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- Import materialize -->
+    <!-- Import Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <meta charset="UTF-8">
