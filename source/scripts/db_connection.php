@@ -1,9 +1,5 @@
 <?php
-
-$db_host = "";
-$db_name = "";
-$db_user = "";
-$db_password = "";
+require_once 'db_credentials.php';
 
 $connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
 

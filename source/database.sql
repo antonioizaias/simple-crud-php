@@ -8,6 +8,3 @@ CREATE TABLE IF NOT EXISTS cliente(
     cpf VARCHAR(11) NOT NULL,
     email VARCHAR(255) NOT NULL
 );
-
-DESC cliente;
-SELECT * FROM cliente;

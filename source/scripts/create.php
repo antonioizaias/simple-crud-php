@@ -1,5 +1,4 @@
 <?php
-
 require_once 'db_connection.php';
 
 // Se existe a variável do botão dentro do método POST
@@ -13,8 +12,8 @@ if(isset($_POST['btn-cadastrar'])){
     $result = mysqli_query($connection, $query);
 
     if($result){
-        header('Location: ../index.php?sucesso');
+        header('Location: ../index.php?status=sucess');
     } else {
-        header('Location: ../index.php?error');
+        header('Location: ../index.php?status=error');
     }
 }
