@@ -9,8 +9,10 @@ if(isset($_POST['btn-cadastrar'])){
     $email = mysqli_escape_string($connection, $_POST['email']);
 
     $query = "INSERT INTO cliente(nome, sobrenome, cpf, email) VALUES('$nome', '$sobrenome', '$cpf', '$email')";
+    // Executando
     $result = mysqli_query($connection, $query);
 
+    // Retornando a página inicial com uma resposta da requisição
     if($result){
         header('Location: ../index.php?status=sucess');
     } else {

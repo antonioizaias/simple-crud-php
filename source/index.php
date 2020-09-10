@@ -5,7 +5,8 @@ require_once ('scripts/db_connection.php');
 // Header
 require_once ('templates/header.php');
 
-// Buscando situação da inserção do banco na URL
+// Buscando dados na URL
+// JavaScript e PHP
 if(isset($_GET['status'])):
     if($_GET['status'] === "sucess"): ?>
         <script>
@@ -35,7 +36,9 @@ if(isset($_GET['status'])):
             <tbody>
                 <?php
                 $query = "SELECT * FROM cliente";
+                // Executando
                 $result = mysqli_query($connection, $query);
+                // Listando
                 while($values = mysqli_fetch_array($result)):
                 ?>
                 <tr>
@@ -49,7 +52,6 @@ if(isset($_GET['status'])):
                             <a href="#modal<?php echo $values['id'];?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a>
                         </div>
                     </td>
-
                     <!-- Modal Structure -->
                     <div id="modal<?php echo $values['id'];?>" class="modal">
                         <div class="modal-content">
@@ -60,11 +62,10 @@ if(isset($_GET['status'])):
                         <form action="scripts/delete.php" method="POST">
                             <input type="hidden" name="id" value="<?php echo $values['id'];?>">
                             <button type="submit" name="btn-deletar" class="btn red">Continuar</button>
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                            <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
                         </form>
                         </div>
                     </div>
-
                 </tr>
                 <?php endwhile; ?>
             </tbody>

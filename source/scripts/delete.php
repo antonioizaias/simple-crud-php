@@ -6,8 +6,10 @@ if(isset($_POST['btn-deletar'])){
     $id = mysqli_escape_string($connection, $_POST['id']);
 
     $query = "DELETE FROM cliente WHERE id = '$id'";
+    // Executando
     $result = mysqli_query($connection, $query);
 
+    // Retornando a página inicial com uma resposta da requisição
     if($result){
         header('Location: ../index.php?status=sucess');
     } else {

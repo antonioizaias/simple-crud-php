@@ -9,6 +9,7 @@ require_once '../templates/header.php';
 if(isset($_GET['id'])){
     $id = mysqli_escape_string($connection, $_GET['id']);
     $query = "SELECT * FROM cliente WHERE id = '$id'";
+    // Executando
     $result = mysqli_query($connection, $query);
     $values = mysqli_fetch_array($result);
 }
@@ -40,7 +41,6 @@ if(isset($_GET['id'])){
             <button type="submit" name="btn-editar" class="btn">Enviar</button>
             <a href="../index.php" class="btn">Voltar</a>
         </form>
-        
     </div>
 </div>
 
