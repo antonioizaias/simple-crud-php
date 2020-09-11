@@ -2,7 +2,7 @@
 require_once 'db_connection.php';
 
 // Se existe a variável do botão dentro do método POST
-if(isset($_POST['btn-cadastrar'])){
+if (isset($_POST['btn-cadastrar'])) {
     $nome = mysqli_escape_string($connection, $_POST['nome']);
     $sobrenome = mysqli_escape_string($connection, $_POST['sobrenome']);
     $cpf = mysqli_escape_string($connection, $_POST['cpf']);
@@ -13,7 +13,7 @@ if(isset($_POST['btn-cadastrar'])){
     $result = mysqli_query($connection, $query);
 
     // Retornando a página inicial com uma resposta da requisição
-    if($result){
+    if ($result) {
         header('Location: ../index.php?status=sucess');
     } else {
         header('Location: ../index.php?status=error');

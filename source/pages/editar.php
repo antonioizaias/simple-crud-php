@@ -4,12 +4,14 @@ require_once '../scripts/db_connection.php';
 
 // Header
 require_once '../templates/header.php';
+?>
 
-// Buscando o identificador único retornado da página de listagem na URL
-if(isset($_GET['id'])){
+<!-- Buscando o identificador único retornado da página de listagem na URL -->
+<?php
+if (isset($_GET['id'])) {
     $id = mysqli_escape_string($connection, $_GET['id']);
     $query = "SELECT * FROM cliente WHERE id = '$id'";
-    // Executando
+    // Buscando todos os dados a partir do identificador único
     $result = mysqli_query($connection, $query);
     $values = mysqli_fetch_array($result);
 }
@@ -20,21 +22,21 @@ if(isset($_GET['id'])){
     <div class="col s12 m6 push-m3">
         <h3 class="light">Editar</h3>
         <form action="../scripts/update.php" method="POST">
-        <input type="hidden" value="<?php echo $values['id'];?>" name="id">
+        <input type="hidden" value="<?= $values['id'] ?>" name="id">
             <div class="input-field col s12">
-                <input type="text" name="nome" id="nome" value="<?php echo $values['nome'];?>">
+                <input type="text" name="nome" id="nome" value="<?= $values['nome'] ?>">
                 <label for="nome">Nome</label>
             </div>
             <div class="input-field col s12">
-                <input type="text" name="sobrenome" id="sobrenome" value="<?php echo $values['sobrenome'];?>">
+                <input type="text" name="sobrenome" id="sobrenome" value="<?= $values['sobrenome'] ?>">
                 <label for="sobrenome">Sobrenome</label>
             </div>
             <div class="input-field col s12">
-                <input type="text" name="cpf" id="cpf" maxlength="11" value="<?php echo $values['cpf'];?>">
+                <input type="text" name="cpf" id="cpf" maxlength="11" value="<?= $values['cpf'] ?>">
                 <label for="cpf">CPF</label>
             </div>
             <div class="input-field col s12">
-                <input type="email" name="email" id="email" value="<?php echo $values['email'];?>">
+                <input type="email" name="email" id="email" value="<?= $values['email'] ?>">
                 <label for="email">E-mail</label>
             </div>
             <br>

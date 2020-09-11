@@ -4,20 +4,21 @@ require_once ('scripts/db_connection.php');
 
 // Header
 require_once ('templates/header.php');
+?>
 
-// Buscando dados na URL
-// JavaScript e PHP
-if(isset($_GET['status'])):
-    if($_GET['status'] === "sucess"): ?>
+<!-- Buscando dados na URL para retornar uma resposta ao usuário por meio de um alerta -->
+<!-- JavaScript e PHP -->
+<?php if(isset($_GET['status'])): ?>
+    <?php if($_GET['status'] === 'sucess'): ?>
         <script>
             alert("Ação concluída com sucesso!")
         </script>
-    <?php else:;?>
+    <?php else: ?>
         <script>
-            alert("Erro!")
+            alert("Houve um erro na sua solicitação!")
         </script>
-    <?php endif; ?>
-<?php endif; ?>
+    <?php endif ?>
+<?php endif ?>
 
 <!-- Body -->
 <div class="row">
@@ -34,40 +35,41 @@ if(isset($_GET['status'])):
                 </tr>
             </thead>
             <tbody>
+                <!-- Buscando todos os dados -->
                 <?php
                 $query = "SELECT * FROM cliente";
-                // Executando
                 $result = mysqli_query($connection, $query);
-                // Listando
-                while($values = mysqli_fetch_array($result)):
                 ?>
+                
+                <!-- Listando -->
+                <?php while($values = mysqli_fetch_array($result)): ?>
                 <tr>
-                    <td class="center"> <?php echo $values['nome'] ?> </td>
-                    <td class="center"> <?php echo $values['sobrenome'] ?> </td>
-                    <td class="center"> <?php echo $values['cpf'] ?> </td>
-                    <td class="center"> <?php echo $values['email'] ?> </td>
+                    <td class="center"> <?= $values['nome'] ?> </td>
+                    <td class="center"> <?= $values['sobrenome'] ?> </td>
+                    <td class="center"> <?= $values['cpf'] ?> </td>
+                    <td class="center"> <?= $values['email'] ?> </td>
                     <td>
                         <div class="center">
-                            <a href="pages/editar.php?id=<?php echo $values['id'];?>" class="btn-floating orange"><i class="material-icons">edit</i></a>
-                            <a href="#modal<?php echo $values['id'];?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a>
+                            <a href="pages/editar.php?id=<?= $values['id'] ?>" class="btn-floating orange"><i class="material-icons">edit</i></a>
+                            <a href="#modal<?= $values['id'] ?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a>
                         </div>
                     </td>
                     <!-- Modal Structure -->
-                    <div id="modal<?php echo $values['id'];?>" class="modal">
+                    <div id="modal<?= $values['id'] ?>" class="modal">
                         <div class="modal-content">
                         <h4>Excluir</h4>
                         <p>Você tem certeza?</p>
                         </div>
                         <div class="modal-footer">
                         <form action="scripts/delete.php" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $values['id'];?>">
+                            <input type="hidden" name="id" value="<?= $values['id'] ?>">
                             <button type="submit" name="btn-deletar" class="btn red">Continuar</button>
                             <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
                         </form>
                         </div>
                     </div>
                 </tr>
-                <?php endwhile; ?>
+                <?php endwhile ?>
             </tbody>
         </table>
         <br>
