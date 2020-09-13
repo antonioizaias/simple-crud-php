@@ -1,6 +1,6 @@
 # *CRUD*
 
-![PHP](https://img.shields.io/badge/PHP-%5E7.4.9-blue.svg) ![Materialize](https://img.shields.io/badge/Materialize-%5E1.0-ff69b4.svg)
+![PHP](https://img.shields.io/badge/PHP-%5E7.4.9-blue.svg) ![Materialize](https://img.shields.io/badge/Materialize-%5E1.0.0-ff69b4.svg)
 
 <h2 align="center"><strong>Descrição</strong></h2>
 
