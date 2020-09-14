@@ -11,5 +11,6 @@ Sistema simples para as funcionalidades de criação, leitura, atualização e e
 - Acesso ao banco de dados com o *MySQL*.
 - Otimização da conexão com o banco de dados através do módulo *MySQLi*.
 - Paradigma de programação procedural.
+- Sessões do *PHP* pra responder requisições de usuários.
 - Algumas padronizações de códigos aplicadas a partir de [PSRs](https://www.php-fig.org/psr/).
 - Uso do *Material Design* a partir do *Materialize*.
