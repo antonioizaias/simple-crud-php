@@ -1,4 +1,7 @@
 <?php
+// Iniciando a sessão
+session_start();
+
 require_once 'db_connection.php';
 
 // Se existe a variável do botão dentro do método POST
@@ -14,8 +17,10 @@ if (isset($_POST['btn-cadastrar'])) {
 
     // Retornando a página inicial com uma resposta da requisição
     if ($result) {
-        header('Location: ../index.php?status=sucess');
+        $_SESSION['status'] = "Inserção feita com sucesso!";
+        header('Location: ../index.php');
     } else {
-        header('Location: ../index.php?status=error');
+        $_SESSION['status'] = "Houve um erro na sua solicitação de inserção!";
+        header('Location: ../index.php');
     }
 }

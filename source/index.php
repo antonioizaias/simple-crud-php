@@ -4,21 +4,10 @@ require_once ('scripts/db_connection.php');
 
 // Header
 require_once ('templates/header.php');
-?>
 
-<!-- Buscando dados na URL para retornar uma resposta ao usuário por meio de um alerta -->
-<!-- JavaScript e PHP -->
-<?php if(isset($_GET['status'])): ?>
-    <?php if($_GET['status'] === 'sucess'): ?>
-        <script>
-            alert("Ação concluída com sucesso!")
-        </script>
-    <?php else: ?>
-        <script>
-            alert("Houve um erro na sua solicitação!")
-        </script>
-    <?php endif ?>
-<?php endif ?>
+// Respostas
+require_once ('templates/response.php');
+?>
 
 <!-- Body -->
 <div class="row">

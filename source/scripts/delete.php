@@ -1,4 +1,7 @@
 <?php
+// Iniciando a sessão
+session_start();
+
 require_once 'db_connection.php';
 
 // Se existe a variável do botão dentro do método POST
@@ -11,8 +14,10 @@ if (isset($_POST['btn-deletar'])) {
 
     // Retornando a página inicial com uma resposta da requisição
     if ($result) {
-        header('Location: ../index.php?status=sucess');
+        $_SESSION['status'] = "Exclusão feita com sucesso!";
+        header('Location: ../index.php');
     } else {
-        header('Location: ../index.php?status=error');
+        $_SESSION['status'] = "Houve um erro na sua solicitação de exclusão!";
+        header('Location: ../index.php');
     }
 }
