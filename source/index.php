@@ -1,12 +1,12 @@
 <?php
 // Conexão com o banco de dados para a listagem de todos os dados
-require_once ('scripts/db_connection.php');
+require_once 'scripts/db_connection.php';
 
 // Header
-require_once ('templates/header.php');
+require_once 'templates/header.php';
 
 // Respostas
-require_once ('templates/response.php');
+require_once 'templates/response.php';
 ?>
 
 <!-- Body -->
