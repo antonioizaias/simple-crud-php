@@ -1,16 +1,21 @@
 <?php
-// Conexão com o banco de dados para a listagem de todos os dados que serão editados
-require_once '../scripts/db_connection.php';
-
 // Header
 require_once '../templates/header.php';
+
+// Conexão com o banco de dados
+require_once '../scripts/db_connection.php';
+
+// Respostas
+require_once '../templates/response.php';
 ?>
 
-<!-- Buscando o identificador único retornado da página de listagem na URL -->
 <?php
 if (isset($_GET['id'])) {
+    
+    // Identificador único retornado da página de listagem
     $id = mysqli_escape_string($connection, $_GET['id']);
     $query = "SELECT * FROM cliente WHERE id = '$id'";
+
     // Buscando todos os dados a partir do identificador único
     $result = mysqli_query($connection, $query);
     $values = mysqli_fetch_array($result);
@@ -24,19 +29,19 @@ if (isset($_GET['id'])) {
         <form action="../scripts/update.php" method="POST">
         <input type="hidden" value="<?= $values['id'] ?>" name="id">
             <div class="input-field col s12">
-                <input type="text" name="nome" id="nome" value="<?= $values['nome'] ?>">
+                <input type="text" name="nome" id="nome" value="<?= $values['nome'] ?>" required="true">
                 <label for="nome">Nome</label>
             </div>
             <div class="input-field col s12">
-                <input type="text" name="sobrenome" id="sobrenome" value="<?= $values['sobrenome'] ?>">
+                <input type="text" name="sobrenome" id="sobrenome" value="<?= $values['sobrenome'] ?>" required="true">
                 <label for="sobrenome">Sobrenome</label>
             </div>
             <div class="input-field col s12">
-                <input type="text" name="cpf" id="cpf" maxlength="11" value="<?= $values['cpf'] ?>">
+                <input type="text" name="cpf" id="cpf" maxlength="11" value="<?= $values['cpf'] ?>" maxlength="11" required="true">
                 <label for="cpf">CPF</label>
             </div>
             <div class="input-field col s12">
-                <input type="email" name="email" id="email" value="<?= $values['email'] ?>">
+                <input type="email" name="email" id="email" value="<?= $values['email'] ?>" required="true">
                 <label for="email">E-mail</label>
             </div>
             <br>

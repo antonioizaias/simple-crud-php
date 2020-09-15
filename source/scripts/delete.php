@@ -1,15 +1,16 @@
 <?php
+require_once 'db_connection.php';
+
 // Iniciando a sessão
 session_start();
 
-require_once 'db_connection.php';
-
-// Se existe a variável do botão dentro do método POST
+// Verificando se existe a variável do botão dentro do método POST
 if (isset($_POST['btn-deletar'])) {
+
     $id = mysqli_escape_string($connection, $_POST['id']);
 
+    // Excluindo no banco de dados
     $query = "DELETE FROM cliente WHERE id = '$id'";
-    // Executando
     $result = mysqli_query($connection, $query);
 
     // Retornando a página inicial com uma resposta da requisição
